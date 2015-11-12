@@ -14,10 +14,11 @@ psdx = (1./(Fs*N)) * abs(xdft).^2;
 psdx(2:end-1) = 2*psdx(2:end-1);
 freq = 0:Fs/length(rawData):Fs/2;
 
-plot(hax,freq,10*log10(psdx))
+semilogx(hax,freq,10*log10(psdx))
 title(sprintf('Periodogram over last %d seconds', N/512)) 
 xlabel('Frequency (Hz)')
 ylabel('Power/Frequency (dB/Hz)')
+ylim([-40,80]);
 
 end
 
